@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int n,i,j,count=0,t[10];
+	printf("Enter the no.of cars: ");
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		int x,y,s,d;
+		printf("Enter the co-ordinates of the car: ");
+		scanf("%d %d",&x,&y);
+		printf("Enter the speed of the car: ");
+		scanf("%d",&s);
+		d=sqrt(x*x+y*y);
+		t[i]=d/s;
+	}
+	for(i=i-1;i>=0;i--)
+		for(j=i-1;j>=0;j--)
+			if(t[i]==t[j])
+				count+=1;
+			else
+				continue;
+	printf("No.of possible collisions are: %d",count);
+	return 0;
+}
